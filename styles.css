@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  width: 600px;
+  height: 250px;
+  display: grid;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel-items {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 600px;
+  height: 250px;
+  overflow: hidden;
+}
+.item-first {
+  width: 500px;
+  height: 250px;
+  display: block !important;
+}
+.item {
+  grid-template-areas: "all";
+  width: 500px;
+  position: relative;
+  height: 250px;
+  display: grid;
+  display: none;
+}
+img {
+  grid-area: all;
+  width: 100%;
+  height: 250px;
+}
+.arrow-left,
+.arrow-right {
+  border: 1px solid #8eac8e;
+  background: cadetblue;
+  width: 50px;
+}

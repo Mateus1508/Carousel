@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <section class="slide">
+      <div class="carousel-items">
+        <button class="arrow-left control"><</button>
+
+        <div class="item item-first">
+          <img src="/img-bk-1.png" alt="Banner-milanesa" />
+        </div>
+        <div class="item">
+          <img src="/img-bk-2.png" alt="Banner-milanesa" />
+        </div>
+        <div class="item">
+          <img src="/img-bk-3.png" alt="Banner-milanesa" />
+        </div>
+        <button class="arrow-right control">></button>
+      </div>
+    </section>
+    <script>
+      const controls = document.querySelectorAll(".control");
+      let currentItem = 0;
+      const items = document.querySelectorAll(".item");
+      const maxItems = items.length;
+
+      controls.forEach((control) => {
+        control.addEventListener("click", () => {
+          const isLeft = control.classList.contains("arrow-left");
+          if (isLeft) {
+            currentItem -= 1;
+          } else {
+            currentItem += 1;
+          }
+          if (currentItem >= maxItems) {
+            currentItem = 0;
+          }
+          if (currentItem < 0) {
+            currentItem = maxItems - 1;
+          }
+          items.forEach((item) => item.classList.remove("item-first"));
+          items[currentItem].scrollIntoView({
+            inline: "center",
+            behavior: "smooth"
+          });
+          items[currentItem].classList.add("item-first");
+        });
+      });
+    </script>
+  </body>
+</html>
